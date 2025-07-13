@@ -1,0 +1,498 @@
+<<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professionelle Sprecherdienste | Synchronsprechen & Voice-Over</title>
+    <style>
+        /* Reset und Grundstile */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Portrait Bild */
+        .portrait {
+            position: absolute;
+            top: 20px;
+            right: 350px;
+            width: 150px;
+            height: 150px;
+            background-color: red; /* Platzhalter - durch dein Bild ersetzen */
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            transform: translateY(0);
+            transition: transform 0.3s;
+        }
+        
+        .portrait:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            padding: 1rem 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #fdbb2d;
+        }
+        
+        /* Hauptinhalt */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2, h3 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid #fdbb2d;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Dienstleistungen */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #b21f1f;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card h3 {
+            color: #b21f1f;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Demo-Player */
+        .demo-player {
+            background: #333;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .demo-controls {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+        
+        button {
+            background: #fdbb2d;
+            color: #333;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #e6a91e;
+        }
+        
+        /* Kontaktformular */
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        textarea {
+            min-height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #fdbb2d;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .portrait {
+                width: 100px;
+                height: 100px;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="portrait" title="Das bin ich!"></div>
+        <div class="logo">Kerstin Worofka</div>
+        <div class="tagline">Sprecherin mit professionellem Studio</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Start</a></li>
+            <li><a href="#services">Dienstleistungen</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#about">Über mich</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="home">
+            <h1>Herzlich Willkommen</h1>
+            <p>Ich biete professionelle Sprecherdienste für Voice-Over, Werbung, E-Learning, Synchron und vieles mehr. Mit meiner vielseitigen Stimme belebe ich Ihren Text.</p>
+            <p>Egal ob charismatischer Werbespot, sachlicher Dokumentarfilm-Commentary oder mitreißendes Hörspiel - ich finde den perfekten Ton für Ihr Projekt.</p>
+        </section>
+        
+        <section id="services">
+            <h2>Meine Dienstleistungen</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>Synchronsprechen</h3>
+                    <p>Professionelle Synchronisation für Filme, Serien und Dokumentationen. Ich verleihe Charakteren aller Genres eine authentische deutsche Stimme, die perfekt zum Original passt.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Voice-Over</h3>
+                    <p>Klare und ausdrucksstarke Voice-Over für Werbespots, Unternehmensvideos, Erklärfilme und Präsentationen. Ihre Botschaft kommt an.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Hörspiele</h3>
+                    <p>Lebendige Stimme für jede Rolle - ob Hauptfigur oder Nebencharakter, ich verleihe jeder Szene Emotion und Tiefe.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>E-Learning & Ertüchtigung</h3>
+                    <p>Verständliche und angenehme Sprecherdienste für Schulungsvideos, Online-Kurse und Weiterbildungsmaterialien.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Werbespots & Radio</h3>
+                    <p>Überzeugende und markante Stimme für Radiowerbung, TV-Spots und Online-Werbung. Ich helfe Ihrer Marke, sich Gehör zu verschaffen.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Charakterstimmen</h3>
+                    <p>Einzigartige Charakterstimmen für Videospiele, Animationsfilme und Hörspiele. Von niedlich bis arrogant - ich biete ein breites Spektrum.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="demo">
+            <h2>Hören Sie selbst</h2>
+            <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
+            
+            <div class="demo-player">
+                <h3>Demo-Reel</h3>
+                <div id="current-demo">Werbung - Automobil</div>
+                <audio id="audio-player" src="" controls></audio>
+                <div class="demo-controls">
+                    <button id="prev-btn">Zurück</button>
+                    <button id="play-btn">Abspielen</button>
+                    <button id="next-btn">Weiter</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about">
+            <h2>Über mich</h2>
+            <p>Hallo, ich bin Kerstin Worofka, eine leidenschaftliche Sprecherin mit Herz, Humor und einem feinen Gespür für Timing.
+Meine Stimme? Beschreib ich lieber mit Wirkung als mit Wörtern – denn sie transportiert, was zwischen den Zeilen steht.</p>
+
+<p>Ob Imagefilm, Werbung, Erklärvideo oder Podcast-Intro – ich hauche Worten Leben ein.
+Mit Gefühl, Klarheit und einer Prise Persönlichkeit.</p>
+
+<p>Meine Sprech-Ausbildung habe ich an der Sprecherschmiede gemacht – einer modernen, praxisnahen Online-Schule,
+an der ich unter anderem von bekannten Sprecher*innen wie Engelbert von Nordhausen, Kevin Kasper, Esra Vural und Sven Plate lernen durfte. Aktuell arbeite ich noch als Hörakustikerin.</p>
+            <p>Ich verfüge über ein eigenes Homestudio mit professioneller Ausrüstung und kann hochwertige Aufnahmen direkt liefern. Selbstverständlich arbeite ich auch gerne in Ihrem bevorzugten Studio.</p>
+            <p>Meine Stimme ist vielseitig einsetzbar und reicht von warm und gefühlvoll bis hin zu energisch und motivierend. Gerne entwickle ich mit Ihnen gemeinsam den perfekten Sound für Ihr Projekt.</p>
+        </section>
+        
+        <section id="contact">
+            <h2>Kontaktieren Sie mich</h2>
+            <p>Sie haben ein Projekt, für das Sie meine Stimme möchten? Ich freue mich auf Ihre Nachricht!</p>
+            
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefon (optional)</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Interessierter Service</label>
+                    <select id="service" name="service">
+                        <option value="">-- Bitte auswählen --</option>
+                        <option value="synchron">Synchronsprechen</option>
+                        <option value="voiceover">Voice-Over</option>
+                        <option value="audioacting">Hörspiel</option>
+                        <option value="elearning">E-Learning</option>
+                        <option value="advertising">Werbung</option>
+                        <option value="other">Anderes</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="message">Ihre Nachricht</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <button type="submit">Nachricht senden</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Kerstin Worofka - Professionelle Sprecherin</p>
+        <div class="social-links">
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+        </div>
+        E-Mail: kerstin.worofka@gmx.de</p>
+    </footer>
+
+    <script>
+        // Demo-Player Funktionen
+        const demos = [
+            { title: "Werbung - Automobil", file: "https://example.com/demos/werbung-auto.mp3" },
+            { title: "Dokumentation - Natur", file: "https://example.com/demos/doku-natur.mp3" },
+            { title: "Hörbuch - Krimi", file: "https://example.com/demos/hoerbuch-krimi.mp3" },
+            { title: "E-Learning - Technik", file: "https://example.com/demos/elearning-technik.mp3" },
+            { title: "Charakter - Bösewicht", file: "https://example.com/demos/charakter-boese.mp3" }
+        ];
+        
+        let currentDemo = 0;
+        const audioPlayer = document.getElementById('audio-player');
+        const currentDemoText = document.getElementById('current-demo');
+        const playBtn = document.getElementById('play-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        function loadDemo(index) {
+            currentDemo = index;
+            currentDemoText.textContent = demos[currentDemo].title;
+            audioPlayer.src = demos[currentDemo].file;
+        }
+        
+        playBtn.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playBtn.textContent = 'Pause';
+            } else {
+                audioPlayer.pause();
+                playBtn.textContent = 'Abspielen';
+            }
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            let newIndex = currentDemo - 1;
+            if (newIndex < 0) newIndex = demos.length - 1;
+            loadDemo(newIndex);
+            audioPlayer.play();
+            playBtn.textContent = 'Pause';
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            let newIndex = currentDemo + 1;
+            if (newIndex >= demos.length) newIndex = 0;
+            loadDemo(newIndex);
+            audioPlayer.play();
+            playBtn.textContent = 'Pause';
+        });
+        
+        audioPlayer.addEventListener('ended', () => {
+            playBtn.textContent = 'Abspielen';
+        });
+        
+        // Starte mit der ersten Demo
+        loadDemo(0);
+        
+        // Kontaktformular
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Hier würde normalerweise der Formularversand erfolgen
+            // Für dieses Beispiel zeigen wir einfach eine Alert
+            alert('Vielen Dank für Ihre Nachricht! Ich werde mich bald bei Ihnen melden.');
+            contactForm.reset();
+        });
+        
+        // Glatte Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
