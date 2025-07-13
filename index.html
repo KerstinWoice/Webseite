@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -12,14 +12,14 @@
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
         }
-        
+
         body {
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
             position: relative;
         }
-        
+
         /* Header */
         header {
             background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
@@ -29,20 +29,20 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .logo {
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .tagline {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 1.5rem;
         }
-        
+
         /* Portrait Bild */
         .portrait {
             position: absolute;
@@ -50,7 +50,7 @@
             right: 350px;
             width: 150px;
             height: 150px;
-            background-image: url('bilder/Ich1.png'); /* Platzhalter - durch dein Bild ersetzen */
+            background-image: url('bilder/Ich1.png');
             background-size: cover;
             background-position: center;
             border: 4px solid white;
@@ -60,11 +60,11 @@
             transform: translateY(0);
             transition: transform 0.3s;
         }
-        
+
         .portrait:hover {
             transform: translateY(-5px);
         }
-        
+
         /* Navigation */
         nav {
             background-color: #333;
@@ -72,35 +72,35 @@
             top: 0;
             z-index: 100;
         }
-        
+
         nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
         }
-        
+
         nav li {
             padding: 1rem 2rem;
         }
-        
+
         nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
-        
+
         nav a:hover {
             color: #fdbb2d;
         }
-        
+
         /* Hauptinhalt */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         section {
             margin-bottom: 3rem;
             background: white;
@@ -108,27 +108,27 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         h1, h2, h3 {
             color: #1a2a6c;
             margin-bottom: 1rem;
         }
-        
+
         h1 {
             font-size: 2.5rem;
         }
-        
+
         h2 {
             font-size: 2rem;
             border-bottom: 2px solid #fdbb2d;
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         p {
             margin-bottom: 1rem;
         }
-        
+
         /* Dienstleistungen */
         .services {
             display: grid;
@@ -136,7 +136,7 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-        
+
         .service-card {
             background: #f9f9f9;
             padding: 1.5rem;
@@ -144,49 +144,92 @@
             border-left: 4px solid #b21f1f;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .service-card h3 {
             color: #b21f1f;
             margin-bottom: 0.5rem;
         }
-        
+
+        /* Neuer Audioplayer */
         .audio-player {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 1rem;
-        background-color: #f5f5f5;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
+            max-width: 100%;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            padding: 1rem;
+        }
 
-    .player-header {
-        display: flex
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-        font-weight: bold;
-        font-size: 1.1rem;
-    }
+        .player-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
 
-    .player-header button {
-        background-color: #ffffff;
-        border: 1px solid #ccc;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: background-color 0.2s;
-    }
+        .player-header button {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
 
-    .player-header button:hover {
-        background-color: #eee;
-    }
-        
+        .player-header button:hover {
+            background-color: #eee;
+        }
+
+        #play-btn {
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #1a2a6c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #play-btn:hover {
+            background-color: #3442a8;
+        }
+
+        #demo-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #demo-list li {
+            cursor: pointer;
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.2s;
+        }
+
+        #demo-list li:hover {
+            background-color: #f0f0f0;
+        }
+
+        #demo-list .active {
+            font-weight: bold;
+            color: #b21f1f;
+        }
+
+        audio::-webkit-media-controls-download-button {
+            display: none !important;
+        }
+
+        audio {
+            width: 100%;
+        }
+
         /* Footer */
         footer {
             background: #333;
@@ -195,44 +238,36 @@
             padding: 2rem 0;
             margin-top: 2rem;
         }
-        
+
         .social-links {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
             margin: 1.5rem 0;
         }
-        
+
         .social-links a {
             color: white;
             font-size: 1.5rem;
             transition: color 0.3s;
         }
-        
+
         .social-links a:hover {
             color: #fdbb2d;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .portrait {
                 width: 100px;
                 height: 100px;
                 top: 10px;
                 right: 10px;
-            }
-            
-            .contact-form {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-group.full-width {
-                grid-column: span 1;
             }
         }
     </style>
@@ -296,25 +331,23 @@
             </div>
         </section>
         
-    <section id="demo">
-  <h2>Hören Sie selbst</h2>
-  <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
+  <section id="demo">
+        <h2>Hören Sie selbst</h2>
+        <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
 
-  <div class="audio-player">
-    <div class="player-header">
-      <button id="prev-btn">&#9664;</button>
-      <div id="current-demo">Demo wird geladen...</div>
-      <button id="next-btn">&#9654;</button>
-    </div>
-    
-    <audio id="audio-player" preload="none"></audio>
-    <button id="play-btn">Abspielen</button>
+        <div class="audio-player">
+            <div class="player-header">
+                <button id="prev-btn">&#9664;</button>
+                <div id="current-demo">Demo wird geladen...</div>
+                <button id="next-btn">&#9654;</button>
+            </div>
 
-    <ul id="demo-list">
-      <!-- Die Liste wird per JavaScript gefüllt -->
-    </ul>
-  </div>
-</section>
+            <audio id="audio-player" preload="none"></audio>
+            <button id="play-btn">Abspielen</button>
+
+            <ul id="demo-list"></ul>
+        </div>
+    </section>
         
         <section id="about">
             <h2>Über mich</h2>
@@ -343,7 +376,7 @@ an der ich unter anderem von bekannten Sprecher*innen wie Engelbert von Nordhaus
     </footer>
 
 <script>
-  const demos = [
+const demos = [
   { title: "Nachhaltigkeit – Lässig und Nachdenklich", file: "demos/Kerstin_Nachhaltigkeit.mp3" },
   { title: "KI – Doku/Werbung", file: "demos/Kerstin_KI.mp3" },
   { title: "Animals Now – Gefühlvoller Werbespot", file: "demos/Kerstin_AnimalsNow.mp3" }
@@ -363,7 +396,6 @@ function loadDemo(index) {
   audioPlayer.src = demo.file;
   currentDemoText.textContent = demo.title;
 
-  // Liste aktualisieren
   document.querySelectorAll('#demo-list li').forEach((li, i) => {
     li.classList.toggle('active', i === currentDemo);
   });
@@ -381,7 +413,6 @@ function playPause() {
   }
 }
 
-// Buttons
 playBtn.addEventListener('click', playPause);
 
 prevBtn.addEventListener('click', () => {
@@ -398,7 +429,6 @@ nextBtn.addEventListener('click', () => {
   playBtn.textContent = 'Pause';
 });
 
-// Liste generieren
 demos.forEach((demo, index) => {
   const li = document.createElement('li');
   li.textContent = demo.title;
@@ -414,9 +444,7 @@ audioPlayer.addEventListener('ended', () => {
   playBtn.textContent = 'Abspielen';
 });
 
-// Initial laden
 loadDemo(0);
 </script>
 </body>
 </html>
-
