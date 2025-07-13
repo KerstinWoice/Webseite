@@ -155,36 +155,40 @@
             margin-bottom: 0.5rem;
         }
         
-        /* Demo-Player */
-        .demo-player {
-            background: #333;
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
-        
-        .demo-controls {
-            display: flex;
-            align-items: center;
-            margin-top: 1rem;
-            gap: 1rem;
-        }
-        
-        button {
-            background: #fdbb2d;
-            color: #333;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        
-        button:hover {
-            background: #e6a91e;
-        }
+        .audio-player {
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 1rem;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .player-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .player-header button {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .player-header button:hover {
+        background-color: #eee;
+    }
         
         /* Kontaktformular */
         .contact-form {
@@ -327,21 +331,19 @@
             </div>
         </section>
         
-        <section id="demo">
-            <h2>Hören Sie selbst</h2>
-            <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
-            
-            <div class="demo-player">
-                <h3>Demo-Reel</h3>
-                <div id="current-demo">Werbung - Automobil</div>
-                <audio id="audio-player" src="" controls></audio>
-                <div class="demo-controls">
-                    <button id="prev-btn">Zurück</button>
-                    <button id="play-btn">Abspielen</button>
-                    <button id="next-btn">Weiter</button>
-                </div>
-            </div>
-        </section>
+       <section id="demo">
+    <h2>Hören Sie selbst</h2>
+    <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
+
+    <div class="audio-player">
+        <div class="player-header">
+            <button id="prev-btn">⏮</button>
+            <span id="current-title">–</span>
+            <button id="next-btn">⏭</button>
+        </div>
+        <audio id="audio-player" controls></audio>
+    </div>
+</section>
         
         <section id="about">
             <h2>Über mich</h2>
@@ -413,59 +415,45 @@ an der ich unter anderem von bekannten Sprecher*innen wie Engelbert von Nordhaus
         E-Mail: kerstin.worofka@gmx.de</p>
     </footer>
 
-    <script>
-        // Demo-Player Funktionen
-        const demos = [
-            { title: "Nachhaltigkeit - Lässig und Nachdenklich", file: "demos/Kerstin_Nachhaltigkeit.mp3" },
-            { title: "KI - Doku/Werbung", file: "demos/Kerstin_KI.mp3" },
-            { title: "Animals Now - Gefühlvoller Werbespot", file: "demos/Kerstin_AnimalsNow.mp3" }
-        ];
-        
-        let currentDemo = 0;
-        const audioPlayer = document.getElementById('audio-player');
-        const currentDemoText = document.getElementById('current-demo');
-        const playBtn = document.getElementById('play-btn');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        
-        function loadDemo(index) {
-            currentDemo = index;
-            currentDemoText.textContent = demos[currentDemo].title;
-            audioPlayer.src = demos[currentDemo].file;
-        }
-        
-        playBtn.addEventListener('click', () => {
-            if (audioPlayer.paused) {
-                audioPlayer.play();
-                playBtn.textContent = 'Pause';
-            } else {
-                audioPlayer.pause();
-                playBtn.textContent = 'Abspielen';
-            }
-        });
-        
-        prevBtn.addEventListener('click', () => {
-            let newIndex = currentDemo - 1;
-            if (newIndex < 0) newIndex = demos.length - 1;
-            loadDemo(newIndex);
-            audioPlayer.play();
-            playBtn.textContent = 'Pause';
-        });
-        
-        nextBtn.addEventListener('click', () => {
-            let newIndex = currentDemo + 1;
-            if (newIndex >= demos.length) newIndex = 0;
-            loadDemo(newIndex);
-            audioPlayer.play();
-            playBtn.textContent = 'Pause';
-        });
-        
-        audioPlayer.addEventListener('ended', () => {
-            playBtn.textContent = 'Abspielen';
-        });
-        
-        // Starte mit der ersten Demo
-        loadDemo(0);
+<script>
+    const demos = [
+        { title: "Nachhaltigkeit – Lässig und Nachdenklich", file: "demos/Kerstin_Nachhaltigkeit.mp3" },
+        { title: "KI – Doku/Werbung", file: "demos/Kerstin_KI.mp3" },
+        { title: "Animals Now – Gefühlvoller Werbespot", file: "demos/Kerstin_AnimalsNow.mp3" }
+    ];
+
+    let currentDemo = 0;
+    const audioPlayer = document.getElementById('audio-player');
+    const currentTitle = document.getElementById('current-title');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    function loadDemo(index) {
+        currentDemo = index;
+        const demo = demos[currentDemo];
+        currentTitle.textContent = demo.title;
+        audioPlayer.src = demo.file;
+        audioPlayer.play();
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentDemo = (currentDemo - 1 + demos.length) % demos.length;
+        loadDemo(currentDemo);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentDemo = (currentDemo + 1) % demos.length;
+        loadDemo(currentDemo);
+    });
+
+    audioPlayer.addEventListener('ended', () => {
+        currentDemo = (currentDemo + 1) % demos.length;
+        loadDemo(currentDemo);
+    });
+
+    // Starte mit erstem Track
+    loadDemo(0);
+</script>
         
         // Kontaktformular
         const contactForm = document.getElementById('contact-form');
