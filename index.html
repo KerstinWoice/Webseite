@@ -331,18 +331,24 @@
             </div>
         </section>
         
-       <section id="demo">
-    <h2>Hören Sie selbst</h2>
-    <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
+    <section id="demo">
+  <h2>Hören Sie selbst</h2>
+  <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
 
-    <div class="audio-player">
-        <div class="player-header">
-            <button id="prev-btn">⏮</button>
-            <span id="current-title">–</span>
-            <button id="next-btn">⏭</button>
-        </div>
-        <audio id="audio-player" controls></audio>
+  <div class="audio-player">
+    <div class="player-header">
+      <button id="prev-btn">&#9664;</button>
+      <div id="current-demo">Demo wird geladen...</div>
+      <button id="next-btn">&#9654;</button>
     </div>
+    
+    <audio id="audio-player" preload="none"></audio>
+    <button id="play-btn">Abspielen</button>
+
+    <ul id="demo-list">
+      <!-- Die Liste wird per JavaScript gefüllt -->
+    </ul>
+  </div>
 </section>
         
         <section id="about">
