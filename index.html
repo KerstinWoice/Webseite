@@ -361,50 +361,6 @@ an der ich unter anderem von bekannten Sprecher*innen wie Engelbert von Nordhaus
             <p>Ich verfüge über ein eigenes Homestudio mit professioneller Ausrüstung und kann hochwertige Aufnahmen direkt liefern. Selbstverständlich arbeite ich auch gerne in Ihrem bevorzugten Studio.</p>
             <p>Meine Stimme ist vielseitig einsetzbar und reicht von warm und gefühlvoll bis hin zu energisch und motivierend. Gerne entwickle ich mit Ihnen gemeinsam den perfekten Sound für Ihr Projekt.</p>
         </section>
-        
-        <section id="contact">
-            <h2>Kontaktieren Sie mich</h2>
-            <p>Sie haben ein Projekt, für das Sie meine Stimme möchten? Ich freue mich auf Ihre Nachricht!</p>
-            
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">E-Mail</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Telefon (optional)</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                
-                <div class="form-group">
-                    <label for="service">Interessierter Service</label>
-                    <select id="service" name="service">
-                        <option value="">-- Bitte auswählen --</option>
-                        <option value="synchron">Synchronsprechen</option>
-                        <option value="voiceover">Voice-Over</option>
-                        <option value="audioacting">Hörspiel</option>
-                        <option value="elearning">E-Learning</option>
-                        <option value="advertising">Werbung</option>
-                        <option value="other">Anderes</option>
-                    </select>
-                </div>
-                
-                <div class="form-group full-width">
-                    <label for="message">Ihre Nachricht</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                
-                <div class="form-group full-width">
-                    <button type="submit">Nachricht senden</button>
-                </div>
-            </form>
-        </section>
     </div>
     
     <footer>
@@ -493,34 +449,6 @@ audioPlayer.addEventListener('ended', () => {
 // Initial laden
 loadDemo(0);
 </script>
-        
-        // Kontaktformular
-        const contactForm = document.getElementById('contact-form');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Hier würde normalerweise der Formularversand erfolgen
-            // Für dieses Beispiel zeigen wir einfach eine Alert
-            alert('Vielen Dank für Ihre Nachricht! Ich werde mich bald bei Ihnen melden.');
-            contactForm.reset();
-        });
-        
-        // Glatte Navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
 
