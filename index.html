@@ -419,43 +419,79 @@ an der ich unter anderem von bekannten Sprecher*innen wie Engelbert von Nordhaus
     </footer>
 
 <script>
-    const demos = [
-        { title: "Nachhaltigkeit – Lässig und Nachdenklich", file: "demos/Kerstin_Nachhaltigkeit.mp3" },
-        { title: "KI – Doku/Werbung", file: "demos/Kerstin_KI.mp3" },
-        { title: "Animals Now – Gefühlvoller Werbespot", file: "demos/Kerstin_AnimalsNow.mp3" }
-    ];
+  const demos = [
+  { title: "Nachhaltigkeit – Lässig und Nachdenklich", file: "demos/Kerstin_Nachhaltigkeit.mp3" },
+  { title: "KI – Doku/Werbung", file: "demos/Kerstin_KI.mp3" },
+  { title: "Animals Now – Gefühlvoller Werbespot", file: "demos/Kerstin_AnimalsNow.mp3" }
+];
 
-    let currentDemo = 0;
-    const audioPlayer = document.getElementById('audio-player');
-    const currentTitle = document.getElementById('current-title');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+let currentDemo = 0;
+const audioPlayer = document.getElementById('audio-player');
+const currentDemoText = document.getElementById('current-demo');
+const playBtn = document.getElementById('play-btn');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const demoList = document.getElementById('demo-list');
 
-    function loadDemo(index) {
-        currentDemo = index;
-        const demo = demos[currentDemo];
-        currentTitle.textContent = demo.title;
-        audioPlayer.src = demo.file;
-        audioPlayer.play();
-    }
+function loadDemo(index) {
+  currentDemo = index;
+  const demo = demos[currentDemo];
+  audioPlayer.src = demo.file;
+  currentDemoText.textContent = demo.title;
 
-    prevBtn.addEventListener('click', () => {
-        currentDemo = (currentDemo - 1 + demos.length) % demos.length;
-        loadDemo(currentDemo);
-    });
+  // Liste aktualisieren
+  document.querySelectorAll('#demo-list li').forEach((li, i) => {
+    li.classList.toggle('active', i === currentDemo);
+  });
 
-    nextBtn.addEventListener('click', () => {
-        currentDemo = (currentDemo + 1) % demos.length;
-        loadDemo(currentDemo);
-    });
+  playBtn.textContent = 'Abspielen';
+}
 
-    audioPlayer.addEventListener('ended', () => {
-        currentDemo = (currentDemo + 1) % demos.length;
-        loadDemo(currentDemo);
-    });
+function playPause() {
+  if (audioPlayer.paused) {
+    audioPlayer.play();
+    playBtn.textContent = 'Pause';
+  } else {
+    audioPlayer.pause();
+    playBtn.textContent = 'Abspielen';
+  }
+}
 
-    // Starte mit erstem Track
-    loadDemo(0);
+// Buttons
+playBtn.addEventListener('click', playPause);
+
+prevBtn.addEventListener('click', () => {
+  currentDemo = (currentDemo - 1 + demos.length) % demos.length;
+  loadDemo(currentDemo);
+  audioPlayer.play();
+  playBtn.textContent = 'Pause';
+});
+
+nextBtn.addEventListener('click', () => {
+  currentDemo = (currentDemo + 1) % demos.length;
+  loadDemo(currentDemo);
+  audioPlayer.play();
+  playBtn.textContent = 'Pause';
+});
+
+// Liste generieren
+demos.forEach((demo, index) => {
+  const li = document.createElement('li');
+  li.textContent = demo.title;
+  li.addEventListener('click', () => {
+    loadDemo(index);
+    audioPlayer.play();
+    playBtn.textContent = 'Pause';
+  });
+  demoList.appendChild(li);
+});
+
+audioPlayer.addEventListener('ended', () => {
+  playBtn.textContent = 'Abspielen';
+});
+
+// Initial laden
+loadDemo(0);
 </script>
         
         // Kontaktformular
