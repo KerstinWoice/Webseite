@@ -200,7 +200,13 @@
         #play-btn:hover {
             background-color: #3442a8;
         }
-
+        
+        #volume-slider {
+        width: 100%;
+        margin-top: 0.8rem;
+        accent-color: #b21f1f;
+        }
+        
         #demo-list {
             list-style: none;
             padding: 0;
@@ -331,23 +337,25 @@
             </div>
         </section>
         
-  <section id="demo">
-        <h2>Hören Sie selbst</h2>
-        <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
+ <section id="demo">
+    <h2>Hören Sie selbst</h2>
+    <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
 
-        <div class="audio-player">
-            <div class="player-header">
-                <button id="prev-btn">&#9664;</button>
-                <div id="current-demo">Demo wird geladen...</div>
-                <button id="next-btn">&#9654;</button>
-            </div>
-
-            <audio id="audio-player" preload="none"></audio>
-            <button id="play-btn">Abspielen</button>
-
-            <ul id="demo-list"></ul>
+    <div class="audio-player">
+        <div class="player-header">
+            <button id="prev-btn">&#9664;</button>
+            <div id="current-demo">Demo wird geladen...</div>
+            <button id="next-btn">&#9654;</button>
         </div>
-    </section>
+
+        <audio id="audio-player" preload="none" controlslist="nodownload"></audio>
+        <button id="play-btn">Abspielen</button>
+        <label for="volume-slider">🔊 Lautstärke</label>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+
+        <ul id="demo-list"></ul>
+    </div>
+</section>
         
         <section id="about" class="container">
             <h2>Über mich</h2>
@@ -449,6 +457,11 @@ audioPlayer.addEventListener('ended', () => {
 });
 
 loadDemo(0);
+
+    const volumeSlider = document.getElementById('volume-slider');
+volumeSlider.addEventListener('input', () => {
+  audioPlayer.volume = volumeSlider.value;
+});
 </script>
 </body>
 </html>
