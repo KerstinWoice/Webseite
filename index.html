@@ -43,7 +43,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Portrait Bild */
         .portrait {
             position: absolute;
             top: 20px;
@@ -65,7 +64,6 @@
             transform: translateY(-5px);
         }
 
-        /* Navigation */
         nav {
             background-color: #333;
             position: sticky;
@@ -94,7 +92,6 @@
             color: #fdbb2d;
         }
 
-        /* Hauptinhalt */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -131,7 +128,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Dienstleistungen */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -157,7 +153,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Neuer Audioplayer */
         .audio-player {
             max-width: 100%;
             background-color: #f5f5f5;
@@ -189,38 +184,42 @@
             background-color: #eee;
         }
 
-        #play-btn {
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             margin-bottom: 1rem;
-            padding: 0.5rem 1rem;
+            justify-content: center;
+        }
+
+        #play-btn {
             background-color: #1a2a6c;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #play-btn:hover {
             background-color: #3442a8;
         }
-        
-       .player-controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    }
 
         .volume-icon {
-    font-size: 1.2rem;
-    margin-right: -0.3rem;
-    user-select: none;
-    }
-    #volume-slider {
-        width: 100px;
-        cursor: pointer;
-        accent-color: #b21f1f;
+            font-size: 1.2rem;
+            user-select: none;
         }
-        
+
+        #volume-slider {
+            width: 100px;
+            cursor: pointer;
+            accent-color: #b21f1f;
+        }
+
         #demo-list {
             list-style: none;
             padding: 0;
@@ -250,7 +249,6 @@
             width: 100%;
         }
 
-        /* Footer */
         footer {
             background: #333;
             color: white;
@@ -276,7 +274,6 @@
             color: #fdbb2d;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -289,8 +286,8 @@
                 top: 10px;
                 right: 10px;
             }
-            
-             section + section {
+
+            section + section {
                 margin-top: 3rem;
             }
         }
@@ -302,7 +299,7 @@
         <div class="logo">Kerstin Worofka</div>
         <div class="tagline">Sprecherin mit professionellem Studio</div>
     </header>
-    
+
     <nav>
         <ul>
             <li><a href="#home">Start</a></li>
@@ -312,97 +309,85 @@
             <li><a href="#contact">Kontakt</a></li>
         </ul>
     </nav>
-    
+
     <div class="container">
         <section id="home">
             <h1>Herzlich Willkommen</h1>
             <p>Ich biete professionelle Sprecherdienste für Voice-Over, Werbung, E-Learning, Synchron und vieles mehr. Mit meiner vielseitigen Stimme belebe ich Ihren Text.</p>
             <p>Egal ob charismatischer Werbespot, sachlicher Dokumentarfilm-Commentary oder mitreißendes Hörspiel - ich finde den perfekten Ton für Ihr Projekt.</p>
         </section>
-        
+
         <section id="services">
             <h2>Meine Dienstleistungen</h2>
             <div class="services">
                 <div class="service-card">
                     <h3>Synchronsprechen</h3>
-                    <p>Professionelle Synchronisation für Filme, Serien und Dokumentationen. Ich verleihe Charakteren aller Genres eine authentische deutsche Stimme, die perfekt zum Original passt.</p>
+                    <p>Professionelle Synchronisation für Filme, Serien und Dokumentationen...</p>
                 </div>
-                
                 <div class="service-card">
                     <h3>Voice-Over</h3>
-                    <p>Klare und ausdrucksstarke Voice-Over für Werbespots, Unternehmensvideos, Erklärfilme und Präsentationen. Ihre Botschaft kommt an.</p>
+                    <p>Klare und ausdrucksstarke Voice-Over für Werbespots, Unternehmensvideos...</p>
                 </div>
-                
                 <div class="service-card">
                     <h3>Hörspiele</h3>
-                    <p>Lebendige Stimme für jede Rolle - ob Hauptfigur oder Nebencharakter, ich verleihe jeder Szene Emotion und Tiefe.</p>
+                    <p>Lebendige Stimme für jede Rolle...</p>
                 </div>
-                
                 <div class="service-card">
                     <h3>E-Learning & Ertüchtigung</h3>
-                    <p>Verständliche und angenehme Sprecherdienste für Schulungsvideos, Online-Kurse und Weiterbildungsmaterialien.</p>
+                    <p>Verständliche und angenehme Sprecherdienste...</p>
                 </div>
-                
                 <div class="service-card">
                     <h3>Werbespots & Radio</h3>
-                    <p>Überzeugende und markante Stimme für Radiowerbung, TV-Spots und Online-Werbung. Ich helfe Ihrer Marke, sich Gehör zu verschaffen.</p>
+                    <p>Überzeugende und markante Stimme...</p>
                 </div>
-                
                 <div class="service-card">
                     <h3>Charakterstimmen</h3>
-                    <p>Einzigartige Charakterstimmen für Videospiele und Animationsfilme. Von niedlich bis arrogant - ich biete ein breites Spektrum.</p>
+                    <p>Einzigartige Charakterstimmen für Videospiele...</p>
                 </div>
             </div>
         </section>
-        
- <section id="demo">
-    <h2>Hören Sie selbst</h2>
-    <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
 
-    <div class="audio-player">
-        <div class="player-header">
-            <button id="prev-btn">&#9664;</button>
-            <div id="current-demo">Demo wird geladen...</div>
-            <button id="next-btn">&#9654;</button>
-        </div>
+        <section id="demo">
+            <h2>Hören Sie selbst</h2>
+            <p>Hier finden Sie eine Auswahl meiner Stimmproben:</p>
 
-        <audio id="audio-player" preload="none" controlslist="nodownload"></audio>
-       <button id="play-btn">Abspielen</button>
-       <span class="volume-icon">🔊</span>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" aria-label="Lautstärke">
-</div>
+            <div class="audio-player">
+                <div class="player-header">
+                    <button id="prev-btn">&#9664;</button>
+                    <div id="current-demo">Demo wird geladen...</div>
+                    <button id="next-btn">&#9654;</button>
+                </div>
 
-        <ul id="demo-list"></ul>
-    </div>
-</section>
-        
+                <div class="player-controls">
+                    <button id="play-btn">▶</button>
+                    <span class="volume-icon">🔊</span>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" aria-label="Lautstärke">
+                </div>
+
+                <audio id="audio-player" preload="none" controlslist="nodownload"></audio>
+                <ul id="demo-list"></ul>
+            </div>
+        </section>
+
         <section id="about">
             <h2>Über mich</h2>
-            <p>Hallo, ich bin Kerstin Worofka und lebe im schönen Schwarzwald in Baden-Württemberg. Ich bin eine leidenschaftliche Sprecherin mit Herz, Humor und einem feinen Gespür für Timing.
-Meine Stimme? Beschreib ich lieber mit Wirkung als mit Wörtern – denn sie transportiert, was zwischen den Zeilen steht.</p>
-<p>Ich bin Hörakustikerin und daher weiß ich wie wichtig es ist, immer den richtigen Sound zu haben. Meine Sprech-Ausbildung habe ich Anfang 2025 an der Sprecherschmiede beendet – einer modernen, praxisnahen Online-Schule,
-an der ich unter anderem von bekannten Sprecher*innen wie Engelbert von Nordhausen, Kevin Kasper, Esra Vural und Sven Plate lernen durfte.</p>
-              <p>Ich verfüge über ein eigenes Homestudio mit professioneller Ausrüstung und kann hochwertige Aufnahmen direkt liefern. Selbstverständlich arbeite ich auch gerne in Ihrem bevorzugten Studio.</p>
-            <p>Ob Imagefilm, Werbung, Erklärvideo oder Podcast-Intro – ich hauche Worten Leben ein.
-Mit Gefühl, Klarheit und einer Prise Persönlichkeit.</p>
-            <p>Meine Stimme ist vielseitig einsetzbar und reicht von warm und gefühlvoll bis hin zu energisch und motivierend. Gerne entwickle ich mit Ihnen gemeinsam den perfekten Sound für Ihr Projekt.</p>
+            <p>Hallo, ich bin Kerstin Worofka...</p>
         </section>
 
         <section id="contact">
             <h2>Kontakt</h2>
-            <p>Bitte zögern Sie nicht, mich zu kontaktieren unter <strong><u>kerstin.worofka@gmx.de</u></strong> oder auf meinen Social Media Kanälen.</p>
-            <p>Ich werde mich zeitnah bei Ihnen melden.</p>
+            <p>Bitte zögern Sie nicht, mich zu kontaktieren unter <strong><u>kerstin.worofka@gmx.de</u></strong>...</p>
         </section>
     </div>
-    
+
     <footer>
         <p>&copy; 2025 Kerstin Worofka - Professionelle Sprecherin</p>
         <div class="social-links">
-    <a href="https://www.linkedin.com/in/kerstin-worofka-sprecherin/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-    <a href="https://www.facebook.com/Kerstin.Worofka" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
-    <a href="https://www.instagram.com/kerstinworofka_sprecherin/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-    <a href="https://www.tiktok.com/@kerstinworofka" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
-</div>
+            <a href="https://www.linkedin.com/in/kerstin-worofka-sprecherin/">LinkedIn</a>
+            <a href="https://www.facebook.com/Kerstin.Worofka">Facebook</a>
+            <a href="https://www.instagram.com/kerstinworofka_sprecherin/">Instagram</a>
+            <a href="https://www.tiktok.com/@kerstinworofka">TikTok</a>
+        </div>
     </footer>
 
 <script>
@@ -430,16 +415,16 @@ function loadDemo(index) {
     li.classList.toggle('active', i === currentDemo);
   });
 
-  playBtn.textContent = 'Abspielen';
+  playBtn.textContent = '▶';
 }
 
 function playPause() {
   if (audioPlayer.paused) {
     audioPlayer.play();
-    playBtn.textContent = 'Pause';
+    playBtn.textContent = '⏸';
   } else {
     audioPlayer.pause();
-    playBtn.textContent = 'Abspielen';
+    playBtn.textContent = '▶';
   }
 }
 
@@ -449,14 +434,14 @@ prevBtn.addEventListener('click', () => {
   currentDemo = (currentDemo - 1 + demos.length) % demos.length;
   loadDemo(currentDemo);
   audioPlayer.play();
-  playBtn.textContent = 'Pause';
+  playBtn.textContent = '⏸';
 });
 
 nextBtn.addEventListener('click', () => {
   currentDemo = (currentDemo + 1) % demos.length;
   loadDemo(currentDemo);
   audioPlayer.play();
-  playBtn.textContent = 'Pause';
+  playBtn.textContent = '⏸';
 });
 
 demos.forEach((demo, index) => {
@@ -465,20 +450,19 @@ demos.forEach((demo, index) => {
   li.addEventListener('click', () => {
     loadDemo(index);
     audioPlayer.play();
-    playBtn.textContent = 'Pause';
+    playBtn.textContent = '⏸';
   });
   demoList.appendChild(li);
 });
 
 audioPlayer.addEventListener('ended', () => {
-  playBtn.textContent = 'Abspielen';
+  playBtn.textContent = '▶';
 });
 
 loadDemo(0);
 
-    const volumeSlider = document.getElementById('volume-slider');
-volumeSlider.addEventListener('input', () => {
-  audioPlayer.volume = volumeSlider.value;
+document.getElementById('volume-slider').addEventListener('input', (e) => {
+  audioPlayer.volume = e.target.value;
 });
 </script>
 </body>
