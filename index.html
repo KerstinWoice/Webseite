@@ -36,6 +36,12 @@
             justify-content: center;
             gap: 1.5rem;
         }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         
         .logo {
             font-size: 2.5rem;
@@ -50,7 +56,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .portrait {
+       .portrait {
             position: relative;
             width: 150px;
             height: 150px;
@@ -300,10 +306,13 @@
 </head>
 <body>
     <header>
-        <div class="header-inner">
+       <div class="header-inner">
     <div class="portrait"></div>
-    <div class="logo">Kerstin Worofka</div>
+    <div class="header-text">
+        <div class="logo">Kerstin Worofka</div>
         <div class="tagline">Sprecherin mit professionellem Studio</div>
+    </div>
+</div>
     </header>
 
     <nav>
