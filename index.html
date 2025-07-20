@@ -30,6 +30,13 @@
             overflow: hidden;
         }
 
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
         .logo {
             font-size: 2.5rem;
             font-weight: bold;
@@ -44,9 +51,7 @@
         }
 
         .portrait {
-            position: absolute;
-            top: 20px;
-            right: 350px;
+            position: relative;
             width: 150px;
             height: 150px;
             background-image: url('bilder/Ich1.png');
@@ -295,8 +300,9 @@
 </head>
 <body>
     <header>
-        <div class="portrait"></div>
-        <div class="logo">Kerstin Worofka</div>
+        <div class="header-inner">
+    <div class="portrait"></div>
+    <div class="logo">Kerstin Worofka</div>
         <div class="tagline">Sprecherin mit professionellem Studio</div>
     </header>
 
