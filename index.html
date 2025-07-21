@@ -285,19 +285,20 @@
             color: #fdbb2d;
         }
 
-      @media (max-width: 768px) {
+    @media (max-width: 768px) {
     nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
+        flex-wrap: wrap; /* Erlaubt Zeilenumbruch */
+        justify-content: center;
+        padding: 0.5rem;
     }
 
     nav li {
-        padding: 0.3rem 0.5rem;
+        padding: 0.3rem 0.8rem;
+        flex: 0 1 auto; /* Lässt Items nebeneinander laufen */
     }
 
     nav a {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
 
             @media (max-width: 600px) {
