@@ -615,26 +615,27 @@ audioPlayer.addEventListener('ended', () => {
   playBtn.textContent = '▶';
 });
 
-loadDemo(0);
-
 document.getElementById('volume-slider').addEventListener('input', (e) => {
   audioPlayer.volume = e.target.value;
 });
-    
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.getElementById("toggle-impressum");
-    const impressumContent = document.getElementById("impressum-content");
 
-    toggleBtn.addEventListener("click", function () {
-      impressumContent.classList.toggle("visible");
-      if (impressumContent.classList.contains("visible")) {
-        toggleBtn.textContent = "Impressum ausblenden";
-      } else {
-        toggleBtn.textContent = "Impressum anzeigen";
-      }
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("toggle-impressum");
+  const impressumContent = document.getElementById("impressum-content");
+
+  toggleBtn.addEventListener("click", function (e) {
+    e.preventDefault(); // verhindert das Springen nach oben
+    impressumContent.classList.toggle("visible");
+    if (impressumContent.classList.contains("visible")) {
+      toggleBtn.textContent = "Impressum ausblenden";
+    } else {
+      toggleBtn.textContent = "Impressum anzeigen";
+    }
   });
+});
+
+// Lade die erste Demo am Ende
+loadDemo(0);
 </script>
 </body>
 </html>
