@@ -392,15 +392,17 @@
     text-align: center;
 }
 
-.legal-toggle a {
-    display: inline-block;
+.legal-toggle button {
+    background: none;
+    border: none;
     color: #fdbb2d;
     font-size: 0.9rem;
     text-decoration: underline;
     cursor: pointer;
+    padding: 0;
 }
 
-.legal-toggle a:hover {
+.legal-toggle button:hover {
     color: white;
 }
 
@@ -414,7 +416,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    }
+}
 
 #impressum-content.visible {
     display: block;
@@ -536,10 +538,10 @@ Mit Gefühl, Klarheit und einer Prise Persönlichkeit.</p>
   <div id="impressum-content" class="hidden">
     <p><strong>Impressum:</strong><br>
           Kerstin Worofka<br>
-          c/o flexdienst – #10994
-          Kurt-Schumacher-Straße 76
+          c/o flexdienst – #10994<br>
+          Kurt-Schumacher-Straße 76<br>
           67663 Kaiserslautern
-          Deutschland
+          Deutschland<br>
       E-Mail: <a href="mailto:kerstin.worofka@gmx.de">kerstin.worofka@gmx.de</a><br>
       Verantwortlich nach § 55 Abs. 2 RStV: Kerstin Worofka
         </p>
@@ -623,12 +625,16 @@ document.getElementById('volume-slider').addEventListener('input', (e) => {
 });
     
 <script>
-  document.getElementById("toggle-impressum").addEventListener("click", function (e) {
-    e.preventDefault();
-    document.getElementById("impressum-content").classList.toggle("visible");
-    this.textContent = document.getElementById("impressum-content").classList.contains("visible")
-      ? "Impressum ausblenden"
-      : "Impressum anzeigen";
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("toggle-impressum");
+    const impressumContent = document.getElementById("impressum-content");
+
+    toggleBtn.addEventListener("click", function () {
+      impressumContent.classList.toggle("visible");
+      toggleBtn.textContent = impressumContent.classList.contains("visible")
+        ? "Impressum ausblenden"
+        : "Impressum anzeigen";
+    });
   });
 </script>
 </body>
