@@ -388,39 +388,39 @@
         gap: 1rem;
     }
 .legal-toggle {
-    margin-top: 1.5rem;
-    text-align: center;
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
 .legal-toggle button {
-    background: none;
-    border: none;
-    color: #fdbb2d;
-    font-size: 0.9rem;
-    text-decoration: underline;
-    cursor: pointer;
-    padding: 0;
+  background: none;
+  border: none;
+  color: #fdbb2d;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
 }
 
 .legal-toggle button:hover {
-    color: white;
+  color: white;
 }
 
 #impressum-content {
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: #ccc;
-    line-height: 1.5;
-    display: none;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.5;
+  display: none;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
 #impressum-content.visible {
-    display: block;
-    }
+  display: block;
+}
 }
             
     </style>
@@ -533,20 +533,20 @@ Mit Gefühl, Klarheit und einer Prise Persönlichkeit.</p>
             <a href="https://www.tiktok.com/@kerstinworofka">TikTok</a>
         </div>
         
-        <div class="legal-toggle">
-  <a id="toggle-impressum" href="#">Impressum anzeigen</a>
-  <div id="impressum-content" class="hidden">
+       <div class="legal-toggle">
+  <button id="toggle-impressum">Impressum anzeigen</button>
+  <div id="impressum-content">
     <p><strong>Impressum:</strong><br>
-          Kerstin Worofka<br>
-          c/o flexdienst – #10994<br>
-          Kurt-Schumacher-Straße 76<br>
-          67663 Kaiserslautern
-          Deutschland<br>
+      Kerstin Worofka<br>
+      c/o flexdienst – #10994<br>
+      Kurt-Schumacher-Straße 76<br>
+      67663 Kaiserslautern<br>
+      Deutschland<br>
       E-Mail: <a href="mailto:kerstin.worofka@gmx.de">kerstin.worofka@gmx.de</a><br>
       Verantwortlich nach § 55 Abs. 2 RStV: Kerstin Worofka
-        </p>
-      </div>
+    </p>
   </div>
+</div>
     </footer>
 
 <script>
@@ -631,9 +631,11 @@ document.getElementById('volume-slider').addEventListener('input', (e) => {
 
     toggleBtn.addEventListener("click", function () {
       impressumContent.classList.toggle("visible");
-      toggleBtn.textContent = impressumContent.classList.contains("visible")
-        ? "Impressum ausblenden"
-        : "Impressum anzeigen";
+      if (impressumContent.classList.contains("visible")) {
+        toggleBtn.textContent = "Impressum ausblenden";
+      } else {
+        toggleBtn.textContent = "Impressum anzeigen";
+      }
     });
   });
 </script>
