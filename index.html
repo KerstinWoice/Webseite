@@ -387,6 +387,29 @@
         flex-wrap: wrap;
         gap: 1rem;
     }
+.legal-toggle a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #fdbb2d;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.legal-toggle a:hover {
+    color: #ffffff;
+}
+
+#impressum-content {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #ccc;
+    line-height: 1.4;
+    display: none;
+}
+
+#impressum-content.visible {
+    display: block;
 }
             
     </style>
@@ -498,6 +521,18 @@ Mit Gefühl, Klarheit und einer Prise Persönlichkeit.</p>
             <a href="https://www.instagram.com/kerstinworofka_sprecherin/">Instagram</a>
             <a href="https://www.tiktok.com/@kerstinworofka">TikTok</a>
         </div>
+        <div class="legal-toggle">
+  <a href="#" onclick="document.getElementById('impressum-content').classList.toggle('visible'); return false;">Impressum anzeigen</a>
+  <div id="impressum-content" class="hidden">
+    <p><strong>Impressum:</strong><br>
+          Kerstin Worofka<br>
+          Kurt-Schumacher-Straße 76
+          67663 Kaiserslautern
+          Deutschland
+      E-Mail: <a href="mailto:kerstin.worofka@gmx.de">kerstin.worofka@gmx.de</a><br>
+      Verantwortlich nach § 55 Abs. 2 RStV: Kerstin Worofka
+    </p>
+  </div>
     </footer>
 
 <script>
