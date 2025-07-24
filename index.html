@@ -387,29 +387,38 @@
         flex-wrap: wrap;
         gap: 1rem;
     }
+.legal-toggle {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
 .legal-toggle a {
     display: inline-block;
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
     color: #fdbb2d;
+    font-size: 0.9rem;
     text-decoration: underline;
     cursor: pointer;
 }
 
 .legal-toggle a:hover {
-    color: #ffffff;
+    color: white;
 }
 
 #impressum-content {
     margin-top: 1rem;
     font-size: 0.85rem;
     color: #ccc;
-    line-height: 1.4;
+    line-height: 1.5;
     display: none;
-}
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    }
 
 #impressum-content.visible {
     display: block;
+    }
 }
             
     </style>
@@ -521,17 +530,20 @@ Mit Gefühl, Klarheit und einer Prise Persönlichkeit.</p>
             <a href="https://www.instagram.com/kerstinworofka_sprecherin/">Instagram</a>
             <a href="https://www.tiktok.com/@kerstinworofka">TikTok</a>
         </div>
+        
         <div class="legal-toggle">
-  <a href="#" onclick="document.getElementById('impressum-content').classList.toggle('visible'); return false;">Impressum anzeigen</a>
+  <a id="toggle-impressum" href="#">Impressum anzeigen</a>
   <div id="impressum-content" class="hidden">
     <p><strong>Impressum:</strong><br>
           Kerstin Worofka<br>
+          c/o flexdienst – #10994
           Kurt-Schumacher-Straße 76
           67663 Kaiserslautern
           Deutschland
       E-Mail: <a href="mailto:kerstin.worofka@gmx.de">kerstin.worofka@gmx.de</a><br>
       Verantwortlich nach § 55 Abs. 2 RStV: Kerstin Worofka
-    </p>
+        </p>
+      </div>
   </div>
     </footer>
 
@@ -609,6 +621,15 @@ loadDemo(0);
 document.getElementById('volume-slider').addEventListener('input', (e) => {
   audioPlayer.volume = e.target.value;
 });
+    
+<script>
+  document.getElementById("toggle-impressum").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("impressum-content").classList.toggle("visible");
+    this.textContent = document.getElementById("impressum-content").classList.contains("visible")
+      ? "Impressum ausblenden"
+      : "Impressum anzeigen";
+  });
 </script>
 </body>
 </html>
