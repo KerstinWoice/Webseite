@@ -125,37 +125,57 @@
     gap: 2rem;
 }
 
-/* WAVE RECHTS */
-.waveform {
-    width: 120px;
-    height: 60px;
+/* wichtig → damit absolute Position funktioniert */
+.header-inner {
+    position: relative;
+}
+
+/* rechts neben Text */
+.wave-wrap {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* container */
+.wave {
     display: flex;
     align-items: center;
+    gap: 2px;
+    height: 50px;
 }
 
-/* SVG */
-.waveform svg {
-    width: 100%;
-    height: 100%;
+/* bars */
+.wave span {
+    width: 2px;
+    background: white;
+    border-radius: 2px;
+    animation: move 1.4s linear infinite;
 }
 
-/* echte Audio-Linie */
-.waveform path {
-    fill: none;
-    stroke: white;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+/* UNTERSCHIEDLICHE HÖHEN → das ist der entscheidende Punkt */
+.wave span:nth-child(1)  { height: 6px;  animation-delay: 0s; }
+.wave span:nth-child(2)  { height: 18px; animation-delay: 0.1s; }
+.wave span:nth-child(3)  { height: 10px; animation-delay: 0.2s; }
+.wave span:nth-child(4)  { height: 30px; animation-delay: 0.3s; }
+.wave span:nth-child(5)  { height: 14px; animation-delay: 0.4s; }
+.wave span:nth-child(6)  { height: 26px; animation-delay: 0.5s; }
+.wave span:nth-child(7)  { height: 12px; animation-delay: 0.6s; }
+.wave span:nth-child(8)  { height: 22px; animation-delay: 0.7s; }
+.wave span:nth-child(9)  { height: 8px;  animation-delay: 0.8s; }
+.wave span:nth-child(10) { height: 28px; animation-delay: 0.9s; }
+.wave span:nth-child(11) { height: 16px; animation-delay: 1s; }
+.wave span:nth-child(12) { height: 24px; animation-delay: 1.1s; }
+.wave span:nth-child(13) { height: 10px; animation-delay: 1.2s; }
+.wave span:nth-child(14) { height: 20px; animation-delay: 1.3s; }
+.wave span:nth-child(15) { height: 6px;  animation-delay: 1.4s; }
 
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    animation: audioMove 2.5s linear infinite;
-}
-
-/* läuft NUR nach rechts */
-@keyframes audioMove {
-    from { stroke-dashoffset: 400; }
-    to { stroke-dashoffset: 0; }
+/* Bewegung → wirkt wie durchlaufende Spur */
+@keyframes move {
+    0%   { transform: scaleY(1); opacity: 0.8; }
+    50%  { transform: scaleY(1.6); opacity: 1; }
+    100% { transform: scaleY(1); opacity: 0.8; }
 }
 
         nav {
@@ -514,17 +534,13 @@
         <div class="logo">Kerstin Worofka</div>
         <div class="tagline">Sprecherin mit professionellem Homestudio</div>
   
-        <div class="waveform">
-        <svg viewBox="0 0 200 80">
-            <path d="M0 40 
-                     Q5 10 10 40 T20 40 T30 40 T40 40 
-                     Q45 70 50 40 T60 40 T70 40 
-                     Q75 20 80 40 T90 40 T100 40 
-                     Q105 65 110 40 T120 40 T130 40 
-                     Q135 15 140 40 T150 40 T160 40 
-                     Q165 60 170 40 T180 40 T190 40 T200 40"/>
-                    </svg>
-                </div>
+       <div class="wave-wrap">
+          <div class="wave">
+            <!-- viele Bars -->
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
         
         </div>
     </header>
