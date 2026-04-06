@@ -113,49 +113,60 @@
             transform: translateY(-5px);
         }
 
-    .wave-wrap {
+  /* Position → rechts, gleiche Höhe wie Text */
+.header-inner {
+    position: relative;
+}
+
+.wave-wrap {
     position: absolute;
     right: 40px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* verhindert Layout-Verschiebung */
-.header-inner {
-    position: relative;
-}
-
-/* AUDIO WAVE (kein Herzmonitor, keine Wasserlinie) */
+/* Container */
 .waveform {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    height: 40px;
+    width: 180px;
+    height: 50px;
+    overflow: hidden;
 }
 
-/* Bars */
-.waveform span {
-    width: 3px;
-    background: white;
-    border-radius: 2px;
-    animation: waveAnim 1.2s infinite ease-in-out;
+/* DIE eigentliche Audio-Spur */
+.track {
+    width: 200%;
+    height: 100%;
+
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 6px,
+        white 6px,
+        white 8px
+    );
+
+    /* MASKE = echte Audioform (oben & unten Ausschlag) */
+    mask: linear-gradient(to top, transparent, black 30%, black 70%, transparent),
+          radial-gradient(circle at 10% 50%, black 20%, transparent 21%),
+          radial-gradient(circle at 30% 50%, black 35%, transparent 36%),
+          radial-gradient(circle at 50% 50%, black 25%, transparent 26%),
+          radial-gradient(circle at 70% 50%, black 40%, transparent 41%),
+          radial-gradient(circle at 90% 50%, black 30%, transparent 31%);
+
+    -webkit-mask: linear-gradient(to top, transparent, black 30%, black 70%, transparent),
+                  radial-gradient(circle at 10% 50%, black 20%, transparent 21%),
+                  radial-gradient(circle at 30% 50%, black 35%, transparent 36%),
+                  radial-gradient(circle at 50% 50%, black 25%, transparent 26%),
+                  radial-gradient(circle at 70% 50%, black 40%, transparent 41%),
+                  radial-gradient(circle at 90% 50%, black 30%, transparent 31%);
+
+    animation: scrollWave 2s linear infinite;
 }
 
-/* asymmetrisch → wirkt wie echte Stimme */
-.waveform span:nth-child(1) { height: 6px;  animation-delay: 0s; }
-.waveform span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
-.waveform span:nth-child(3) { height: 9px;  animation-delay: 0.2s; }
-.waveform span:nth-child(4) { height: 20px; animation-delay: 0.3s; }
-.waveform span:nth-child(5) { height: 12px; animation-delay: 0.2s; }
-.waveform span:nth-child(6) { height: 16px; animation-delay: 0.1s; }
-.waveform span:nth-child(7) { height: 8px;  animation-delay: 0s; }
-
-/* Bewegung NICHT gleichmäßig → weniger "Techno-Bar" Look */
-@keyframes waveAnim {
-    0%   { transform: scaleY(0.6); opacity: 0.7; }
-    30%  { transform: scaleY(1.4); opacity: 1; }
-    60%  { transform: scaleY(0.8); }
-    100% { transform: scaleY(0.6); opacity: 0.7; }
+/* BEWEGUNG → NUR NACH RECHTS */
+@keyframes scrollWave {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
         nav {
@@ -513,11 +524,10 @@
     <div class="header-text">
         <div class="logo">Kerstin Worofka</div>
         <div class="tagline">Sprecherin mit professionellem Homestudio</div>
-               <div class="wave-wrap">
-              <div class="waveform">
-                <span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                  </div>
+  <div class="waveform">
+    <div class="track"></div>
+  </div>
+</div>
         </div>
     </header>
 
