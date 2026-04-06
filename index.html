@@ -130,54 +130,6 @@
     position: relative;
 }
 
-/* rechts neben Text */
-.wave-wrap {
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-/* container */
-.wave {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    height: 50px;
-}
-
-/* bars */
-.wave span {
-    width: 2px;
-    background: white;
-    border-radius: 2px;
-    animation: move 1.4s linear infinite;
-}
-
-/* UNTERSCHIEDLICHE HÖHEN → das ist der entscheidende Punkt */
-.wave span:nth-child(1)  { height: 6px;  animation-delay: 0s; }
-.wave span:nth-child(2)  { height: 18px; animation-delay: 0.1s; }
-.wave span:nth-child(3)  { height: 10px; animation-delay: 0.2s; }
-.wave span:nth-child(4)  { height: 30px; animation-delay: 0.3s; }
-.wave span:nth-child(5)  { height: 14px; animation-delay: 0.4s; }
-.wave span:nth-child(6)  { height: 26px; animation-delay: 0.5s; }
-.wave span:nth-child(7)  { height: 12px; animation-delay: 0.6s; }
-.wave span:nth-child(8)  { height: 22px; animation-delay: 0.7s; }
-.wave span:nth-child(9)  { height: 8px;  animation-delay: 0.8s; }
-.wave span:nth-child(10) { height: 28px; animation-delay: 0.9s; }
-.wave span:nth-child(11) { height: 16px; animation-delay: 1s; }
-.wave span:nth-child(12) { height: 24px; animation-delay: 1.1s; }
-.wave span:nth-child(13) { height: 10px; animation-delay: 1.2s; }
-.wave span:nth-child(14) { height: 20px; animation-delay: 1.3s; }
-.wave span:nth-child(15) { height: 6px;  animation-delay: 1.4s; }
-
-/* Bewegung → wirkt wie durchlaufende Spur */
-@keyframes move {
-    0%   { transform: scaleY(1); opacity: 0.8; }
-    50%  { transform: scaleY(1.6); opacity: 1; }
-    100% { transform: scaleY(1); opacity: 0.8; }
-}
-
         nav {
             background-color: #333;
             position: sticky;
@@ -533,15 +485,6 @@
     <div class="header-text">
         <div class="logo">Kerstin Worofka</div>
         <div class="tagline">Sprecherin mit professionellem Homestudio</div>
-  
-       <div class="wave-wrap">
-          <div class="wave">
-            <!-- viele Bars -->
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-        
         </div>
     </header>
 
